@@ -1,46 +1,35 @@
-function buttonClick() {
-    let nb1 = document.getElementById("number1").value;
-    let nb2 = document.getElementById("number2").value;
-    let operation = document.getElementById("operation").value;
-    let prev_result = document.getElementById("result").value;
+function calculate() {
+    let num1 = parseFloat(document.getElementById("num1").value);
+    let num2 = parseFloat(document.getElementById("num2").value);
+    let op = document.getElementById("op").value;
+    let prev = document.getElementById("current").value;
     let result = "";
 
-    nb1 = parseFloat(nb1);
-    if (isNaN(nb1)) {
-        alert("Please enter a number to first field");
-        document.getElementById("number1").value = null;
+    if (isNaN(num1) || isNaN(num2)) {
+        alert("Введите числа в оба поля");
         return;
     }
 
-    nb2 = parseFloat(nb2);
-    if (isNaN(nb2)) {
-        alert("Please enter a number to second field");
-        document.getElementById("number2").value = null;
-        return;
-    }
-
-    switch (operation) {
+    switch (op) {
         case "+":
-            result = nb1 + nb2;
+            result = num1 + num2;
             break;
         case "-":
-            result = nb1 - nb2;
+            result = num1 - num2;
             break;
         case "*":
-            result = nb1 * nb2;
+            result = num1 * num2;
             break;
         case "/":
-            if (Math.abs(nb2 - 0) < Number.EPSILON) {
-                alert("Division by 0");
+            if(Math.abs(num2 - 0) < Number.EPSILON){
+                alert("Деление на ноль невозможно");
                 return;
             }
-            else {
-                result = nb1 / nb2;
-            }
+            result = num1 / num2;
             break;
     }
 
-    result = nb1 + " " + operation + " " + nb2 + " = " + result;
-    document.getElementById("prev_result").value = prev_result;
-    document.getElementById("result").value = result;
+    document.getElementById("previous").value = prev;
+    document.getElementById("current").value = num1 + " " + op + " " + num2 + " = " + result;
+
 }
