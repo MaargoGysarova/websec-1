@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    
+</head>
+
+<body>
+
+    <div id="main_container">
+        <div class="flex_container" id="container">
+            <input type="text" class="textInput output" id="number1">
+
+            <select class="selectInput output" id="operation">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+
+            <input type="text" class="textInput output" id="number2">
+        </div>
+
+        <div class="flex_container" id="container">
+            <button class="button output" onclick="buttonClick()">Подсчитать</button>
+        </div>
+
+        <div class="flex_container" id="container">
+            <div class="output" id="container">
+                <textarea class="textSpace light_red" id="prev_result" readonly></textarea>
+                <textarea class="textSpace" id="result" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
